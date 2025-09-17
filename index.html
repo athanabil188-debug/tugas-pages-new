@@ -1,0 +1,276 @@
+git init<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Nabil Atha Rizaly</title>
+  <style>
+    :root {
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#06b6d4;
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    * { box-sizing: border-box }
+    body {
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#051328);
+      color:#e6eef8;
+      min-height:100vh;
+    }
+    .container { max-width:1000px; margin:40px auto; padding:24px }
+
+    /* NAVBAR */
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:12px 18px; }
+    .brand { display:flex; align-items:center; gap:12px }
+    .logo { width:46px; height:46px; border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),#7c3aed);
+      display:flex; align-items:center; justify-content:center; font-weight:700 }
+    .brand h1 { font-size:18px; margin:0 }
+    nav ul { display:flex; gap:12px; list-style:none; margin:0; padding:0 }
+    nav a {
+      color:var(--muted); text-decoration:none; padding:8px 12px; border-radius:10px; transition:all .18s
+    }
+    nav a.active, nav a:hover {
+      color:#022b36; background:var(--accent);
+      box-shadow:0 6px 18px rgba(4,139,154,0.12);
+      transform:translateY(-2px)
+    }
+
+    /* HERO */
+    .hero {
+      display:grid; grid-template-columns:360px 1fr;
+      gap:28px; align-items:center; margin-top:28px
+    }
+    .card {
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius); padding:18px;
+      box-shadow:0 8px 30px rgba(2,6,23,0.6);
+      backdrop-filter: blur(6px);
+    }
+    .photo { width:100%; height:360px; border-radius:12px; overflow:hidden; }
+    .photo img { width:100%; height:100%; object-fit:cover; transition:transform .7s }
+    .photo:hover img { transform:scale(1.03) }
+
+    .info h2 { margin:0 0 8px 0; font-size:26px }
+    .info p { margin:0 0 14px 0; color:var(--muted) }
+    .cta { display:flex; gap:10px }
+    .btn {
+      padding:10px 14px; border-radius:10px; text-decoration:none; display:inline-block
+    }
+    .btn-primary { background:var(--accent); color:#022b36 }
+    .btn-ghost {
+      border:1px solid rgba(255,255,255,0.06); color:var(--muted); background:transparent
+    }
+
+    /* SKILL SECTION */
+    .skills {
+      margin-top:20px; display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:12px
+    }
+    .skill-card {
+      background:var(--glass); padding:12px; border-radius:12px;
+      display:flex; align-items:center; gap:12px;
+      border:1px solid rgba(255,255,255,0.03)
+    }
+    .skill-card img {
+      width:100px; height:100px; object-fit:contain; border-radius:12px;
+    }
+    .skill-card h4 { margin:0; font-size:15px }
+    .skill-card p { margin:2px 0 0 0; color:var(--muted); font-size:13px }
+
+    /* RESPONSIVE */
+    @media (max-width:880px) {
+      .hero { grid-template-columns:1fr }
+      .photo { height:300px }
+      .container { margin:18px auto; padding:16px }
+    }
+
+    /* FOOTER */
+    footer { margin-top:26px; color:var(--muted); font-size:13px; text-align:center }
+
+    /* Modal overlay */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 32px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="brand">
+        <div class="logo">NA</div>
+        <div>
+          <h1>Nabil Atha Rizaly</h1>
+          <div style="font-size:12px;color:var(--muted)">• my skil</div>
+        </div> 
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#myskill" class="nav-link">My Skill</a></li>
+        </ul>
+      </nav> 
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <section id="home" class="hero">
+        <div class="card photo">
+          <img src="/gambar/WhatsApp Image 2025-09-16 at 21.06.13_4e9406a1.jpg" alt="Foto saya" id="mainPhoto">
+        </div>
+
+        <div class="card info">
+          <h2>Welcome to my portfolio </h2>
+          <p>Nabil Atha Rizaly.</p>
+
+          <div class="cta">
+            <a href="#myskill" class="btn btn-primary">Lihat Skill</a>
+            <a href="#" class="btn btn-ghost" id="downloadBtn">Unduh Foto</a>
+          </div>
+
+          <div class="skills" style="margin-top:18px">
+            <div class="skill-card">
+              <img src="/gambar/WhatsApp Image 2025-09-16 at 21.41.57_49f170ca.jpg" alt="Skill 1">
+              <div>
+                <h4>Fotografi</h4>
+                <p>Portrait & Street</p>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <img src="/gambar/WhatsApp Image 2025-09-16 at 21.37.06_33419ac5.jpg" alt="Skill 2">
+              <div>
+                <h4>Fotografi</h4>
+                <p>Landscape & Editing</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILL SECTION -->
+      <section id="myskill" style="margin-top:18px">
+        <div class="card">
+          <h3 style="margin:0 0 10px 0">Gambar Skil Ku</h3>
+          <p style="color:var(--muted);margin:0 0 12px 0">Contoh visual skill / karya saya.</p>
+
+          <div class="skills" id="skillGallery">
+            <div class="skill-card">
+              <img src="/gambar/Screenshot 2025-09-16 143201.png" alt="karya 1">
+              <div><h4>Project A</h4><p>membuat tampilan web di figma</p></div>
+            </div>
+            <div class="skill-card">
+              <img src="/gambar/Screenshot 2025-09-15 191358.png" alt="karya 2">
+              <div><h4>Project B</h4><p>membuat web sederhana</p></div>
+            </div>
+            <div class="skill-card">
+              <img src="/gambar/Screenshot 2025-09-17 091506.png" alt="karya 3">
+              <div><h4>Project C</h4><p>membuat di word</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      © <span id="year"></span> Nabil Atha Rizly — Portfolio singkat
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="imageModal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <img id="modalImg" src="" alt="Preview">
+  </div>
+
+  <script>
+    // Navbar active + smooth scroll
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        document
+          .querySelectorAll(".nav-link")
+          .forEach((l) => l.classList.remove("active"));
+        link.classList.add("active");
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    // Download main photo
+    document.getElementById("downloadBtn").addEventListener("click", (e) => {
+      e.preventDefault();
+      const img = document.getElementById("mainPhoto");
+      const link = document.createElement("a");
+      link.href = img.src;
+      link.download = "foto-portfolio.jpg";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    });
+
+    // Footer year otomatis
+    (function setFooterYear() {
+      const footerYear = document.getElementById("year");
+      if (footerYear) {
+        footerYear.textContent = new Date().getFullYear();
+      }
+    })();
+
+    // Modal image preview
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalClose = document.getElementById("modalClose");
+
+    // Klik gambar skill → tampil fullscreen
+    document.querySelectorAll(".skill-card img").forEach((img) => {
+      img.addEventListener("click", () => {
+        modalImg.src = img.src;
+        modal.classList.add("active");
+      });
+    });
+
+    // Tutup modal (tombol X)
+    modalClose.addEventListener("click", () => {
+      modal.classList.remove("active");
+    });
+
+    // Tutup modal kalau klik area luar gambar
+    modal.addEventListener("click", (e) => {
+      if (e.target.id === "imageModal") {
+        modal.classList.remove("active");
+      }
+    });
+  </script>
+</body>
+</html>
